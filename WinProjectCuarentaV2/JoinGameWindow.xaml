@@ -1,0 +1,54 @@
+﻿<Window x:Name="frmJoinGameWindow" x:Class="WinProjectCuarentaV2.JoinGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WinProjectCuarentaV2"
+        mc:Ignorable="d"
+        Title="Unirse a juego" Height="150" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72*"/>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="273*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Cuarenta Recursos\conexion.jpg"/>
+        </Grid.Background>
+        <Label x:Name="label" HorizontalAlignment="Left" Margin="54,9,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3">
+            <Label x:Name="lblIp" Content="Ingrese el ip del Host:" RenderTransformOrigin="0.5,0.5" FontFamily="Eras ITC" FontSize="16" Width="160">
+                <Label.Foreground>
+                    <SolidColorBrush Color="White" Opacity="0.8"/>
+                </Label.Foreground>
+                <Label.Background>
+                    <ImageBrush/>
+                </Label.Background>
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="-0.338"/>
+                        <RotateTransform Angle="-0.078"/>
+                        <TranslateTransform X="0.001" Y="0.475"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+        </Label>
+        <TextBox x:Name="txtIp" HorizontalAlignment="Left" Height="23" Margin="106.273,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" BorderBrush="#FF37383A" FontFamily="Eras ITC" Grid.Column="2">
+            <TextBox.Foreground>
+                <SolidColorBrush Color="White" Opacity="0.8"/>
+            </TextBox.Foreground>
+            <TextBox.Background>
+                <ImageBrush/>
+            </TextBox.Background>
+        </TextBox>
+        <Button x:Name="btnJoin" Content="Conectarse a partida" HorizontalAlignment="Left" Margin="54,77,0,0" VerticalAlignment="Top" Width="292" Click="btnJoin_Click" Foreground="#FFFDF5F5" BorderBrush="{x:Null}" FontWeight="Bold" FontFamily="Gabriola" FontSize="16" Grid.ColumnSpan="3">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA0C79C" Offset="0"/>
+                    <GradientStop Color="#FF3B8735" Offset="0.617"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
