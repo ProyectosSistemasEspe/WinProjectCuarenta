@@ -19,11 +19,6 @@ namespace WinProjectCuarentaV2
 {
     class Cuarenta
     {
-        private int j = 1;
-        private int grupo = 1;
-        private int k = 0;
-        private int u = 1;
-        private int cai = 0;
         private List<int> mesa = new List<int>();
         private List<int> mano = new List<int>();
         public Cuarenta()
@@ -41,28 +36,6 @@ namespace WinProjectCuarentaV2
         {
             this.mesa = mesa;
         }
-        /*public bool ronda(TextBox txtPuntosGrupoActual,TextBox txtPuntosGrupoContrario)//entra el textbox del los puntos
-        {
-            string p=txtPuntosGrupoActual.Text;
-            int puntaje;
-            int h;
-            for (int i = 0; i < 5; i++)
-            {
-                h = numerocarta(mano[i]);
-                if (h == 3)
-                {
-                    puntaje = int.Parse(p);
-                    puntaje = puntaje + 2;
-                    txtPuntosGrupoActual.Text = puntaje.ToString();
-                    return false;
-                }
-                else if (h >= 4)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }*/
         public String findeljuego(TextBox txtCartonGrupoActual, TextBox txtPuntosGrupoActual, TextBox txtCartonGrupoContrario, TextBox txtPuntosGrupoContrario, int cartaAjugar)
         {
             String p = txtPuntosGrupoActual.Text;

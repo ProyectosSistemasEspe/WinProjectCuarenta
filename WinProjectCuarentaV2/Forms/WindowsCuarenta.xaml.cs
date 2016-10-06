@@ -199,7 +199,6 @@ namespace WinProjectCuarentaV2
             verificarTurno();
             desactivarCartasUsuario();
         }
-
         private void btnSuma_Click(object sender, RoutedEventArgs e)
         {
             Button[] b = { btnC0, btnC1, btnC2, btnC3, btnC4, btnC5, btnC6, btnC7, btnC8, btnC9 };
@@ -246,7 +245,6 @@ namespace WinProjectCuarentaV2
             verificarTurno();
             desactivarCartasUsuario();
         }
-
         private void btnEscalera_Click(object sender, RoutedEventArgs e)
         {
             Button[] b = { btnC0, btnC1, btnC2, btnC3, btnC4, btnC5, btnC6, btnC7, btnC8, btnC9 };
@@ -294,11 +292,10 @@ namespace WinProjectCuarentaV2
             desactivarCartasUsuario();
 
         }
-
         private void button_Click(object sender, RoutedEventArgs e)//boton para barajear las cartas
         {
             j.barajear();
-            objUser.SendGeneral(j.ConcatenaraTodo()+"@"+objUser.getTurno().ToString());
+            objUser.Send(j.ConcatenaraTodo()+"@"+objUser.getTurno().ToString());
             Thread.Sleep(500);
             button.IsEnabled = false;
             objUser.SendT("turno,carta," + (objUser.getTurno() + 1).ToString());
@@ -373,15 +370,6 @@ namespace WinProjectCuarentaV2
                         else
                             objUser.Send(fin);
                     }
-                    //c.carton(txtPuntosGrupo1, txtCartonGrupo1);
-                    //c.carton(txtPuntosGrupo2, txtCartonGrupo2);
-                    //fin = c.findeljuego(txtCartonGrupo1, txtPuntosGrupo1, txtCartonGrupo2, txtPuntosGrupo2, 0);
-                    
-                    //if (fin == "")
-                       // objUser.Send(initialSend());
-                    //else
-                        //objUser.Send(fin);
-
                 }
                 else
                     button.IsEnabled = true;
@@ -408,7 +396,5 @@ namespace WinProjectCuarentaV2
         {
             return "0@0@0,0,0,0,0,0,0,0,0,0@" + txtPuntosGrupo1.Text +","+ txtPuntosGrupo2.Text+",0,0";
         }
-
-
-    }
+   }
 }

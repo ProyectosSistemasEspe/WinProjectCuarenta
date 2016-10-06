@@ -104,7 +104,7 @@ namespace WinProjectCuarentaV2
                     string text = Encoding.ASCII.GetString(dataBuf);
                     //aqui se puede analizar con otro identificador el envio de puntos
                     if (text.IndexOf("@") != -1) //verifica si el string recibido tiene @ para saber que recibio una barajeada
-                        SendGeneral(text);
+                        Send(text);
                     else{ //si no es barajeada entonces analizara lo que recibio
                         string[] textoRecibido = text.Split(',');
                         identificacionCadenaRecibida(textoRecibido);
@@ -197,8 +197,8 @@ namespace WinProjectCuarentaV2
             Socket socket = (Socket)AR.AsyncState;
             socket.EndSend(AR);
         }
-        override
-        public void SendGeneral(string data)
+        //override
+        /*public void SendGeneral(string data)
         {
             String[] data2;
             
@@ -212,7 +212,7 @@ namespace WinProjectCuarentaV2
                 Send(data);
             }
 
-        }
+        }*/
         override
         public void Send(string data)
         {

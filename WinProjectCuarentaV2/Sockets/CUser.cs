@@ -39,7 +39,7 @@ namespace WinProjectCuarentaV2
             userSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             
         }
-        public abstract void SendGeneral(string data);
+        //public abstract void SendGeneral(string data);
         public abstract void Send(string data);
         public abstract void SendT(string data);
         public abstract void identificacionCadenaRecibida(string[] textoRecibido);
