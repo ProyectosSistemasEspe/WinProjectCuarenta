@@ -55,15 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CClient.cs" />
-    <Compile Include="CServer.cs" />
-    <Compile Include="Cuarenta.cs" />
-    <Compile Include="CUser.cs" />
-    <Compile Include="Jugador.cs" />
-    <Compile Include="WindowsCuarenta.xaml.cs">
+    <Compile Include="Sockets\CClient.cs" />
+    <Compile Include="Sockets\CServer.cs" />
+    <Compile Include="GameLogic\Cuarenta.cs" />
+    <Compile Include="Sockets\CUser.cs" />
+    <Compile Include="GameLogic\Jugador.cs" />
+    <Compile Include="Forms\WindowsCuarenta.xaml.cs">
       <DependentUpon>WindowsCuarenta.xaml</DependentUpon>
     </Compile>
-    <Page Include="JoinGameWindow.xaml">
+    <Page Include="Forms\JoinGameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -75,14 +75,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="JoinGameWindow.xaml.cs">
+    <Compile Include="Forms\JoinGameWindow.xaml.cs">
       <DependentUpon>JoinGameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="WindowsCuarenta.xaml">
+    <Page Include="Forms\WindowsCuarenta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,6 +114,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
