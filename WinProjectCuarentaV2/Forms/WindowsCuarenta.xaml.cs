@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using WinProjectCuarentaV2.MessageBoxes;
 
 namespace WinProjectCuarentaV2
 {
@@ -190,12 +191,14 @@ namespace WinProjectCuarentaV2
             else
             {
                 objUser.SendT("turno,carta," + (objUser.getTurno() + 1).ToString());
-                //aqui se debe enviar el resultado de lo que quedara en la mesa
+               //aqui se debe enviar el resultado de lo que quedara en la mesa
 
                 Thread.Sleep(500);
                 objUser.Send(siguiente);
                 //MessageBox.Show("Datos son " + siguiente);
             }
+            ControlMessages ctrl = new ControlMessages();
+            ctrl.Show();
             verificarTurno();
             desactivarCartasUsuario();
         }
@@ -295,7 +298,7 @@ namespace WinProjectCuarentaV2
         private void button_Click(object sender, RoutedEventArgs e)//boton para barajear las cartas
         {
             j.barajear();
-            objUser.Send(j.ConcatenaraTodo()+"@"+objUser.getTurno().ToString());
+            objUser.SendGeneral(j.ConcatenaraTodo()+"@"+objUser.getTurno().ToString());
             Thread.Sleep(500);
             button.IsEnabled = false;
             objUser.SendT("turno,carta," + (objUser.getTurno() + 1).ToString());

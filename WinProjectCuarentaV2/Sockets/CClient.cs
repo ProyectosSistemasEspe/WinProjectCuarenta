@@ -140,11 +140,11 @@ namespace WinProjectCuarentaV2
                 MessageBox.Show("Conectado"); 
             }
         }
-        //override
-        /*public void SendGeneral(string data)
+        override
+        public void SendGeneral(string data)
         {
            Send(data);
-        }*/
+        }
         override
         public void Send(string data)
         {

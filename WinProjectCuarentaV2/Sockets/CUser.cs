@@ -39,7 +39,7 @@ namespace WinProjectCuarentaV2
             userSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             
         }
-        //public abstract void SendGeneral(string data);
+        public abstract void SendGeneral(string data);
         public abstract void Send(string data);
         public abstract void SendT(string data);
         public abstract void identificacionCadenaRecibida(string[] textoRecibido);
@@ -76,13 +76,13 @@ namespace WinProjectCuarentaV2
         }
         public void LoadDeck(String barajeada)
         {
-            bool estadoCarta;
+           // bool estadoCarta;
             string[] cardsSeparated = barajeada.Split(',');
             int turnoRecibido = int.Parse(cardsSeparated[5]);
-            if (turnoRecibido == turno)
-                estadoCarta = true;
-            else
-                estadoCarta = false;
+           // if (turnoRecibido == turno)
+               // estadoCarta = true;
+           // else
+              //  estadoCarta = false;
 
             for (int j = 0; j < 5; j++)
             {             
