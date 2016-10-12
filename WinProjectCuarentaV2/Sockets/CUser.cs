@@ -30,7 +30,7 @@ namespace WinProjectCuarentaV2
         protected TextBox[] t;
         public CUser(Button[]b,Button[]c,TextBox[] t)
         {
-            //turno = 1;
+            //this line is only a test
             turnoActual = 1;
             this.c = c;
             this.b = b;
