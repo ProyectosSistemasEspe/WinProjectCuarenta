@@ -31,6 +31,7 @@ namespace WinProjectCuarentaV2
         public CUser(Button[]b,Button[]c,TextBox[] t)
         {
             //turno = 1;
+            // turno prueba
             turnoActual = 1;
             this.c = c;
             this.b = b;
