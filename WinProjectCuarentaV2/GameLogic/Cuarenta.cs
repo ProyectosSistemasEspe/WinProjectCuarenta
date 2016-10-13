@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace WinProjectCuarentaV2
 {
     class Cuarenta
@@ -36,6 +37,7 @@ namespace WinProjectCuarentaV2
         {
             this.mesa = mesa;
         }
+       
         public String findeljuego(TextBox txtCartonGrupoActual, TextBox txtPuntosGrupoActual, TextBox txtCartonGrupoContrario, TextBox txtPuntosGrupoContrario, int cartaAjugar)
         {
             String p = txtPuntosGrupoActual.Text;
@@ -115,7 +117,7 @@ namespace WinProjectCuarentaV2
                 puntaje2 = puntaje2 + 2;
                 txtPuntosGrupoActual.Text = puntaje2.ToString();
                 //findeljuego(txtCartonGrupoActual, txtPuntosGrupoActual, txtCartonGrupoContrario, txtPuntosGrupoContrario, jugadoractual);
-
+                
                 MessageBox.Show("Caida Grupo Actual, 2+ Carton, 2+Puntos", "Aviso");
                 return true;
             }
@@ -152,12 +154,14 @@ namespace WinProjectCuarentaV2
                 }
             if (cont > 1)
             {
+                
                 MessageBox.Show("Carton Grupo Actual, +"+(cont+1), "Aviso ");
                 txtCartonActual.Text = (int.Parse(txtCartonActual.Text) + cont+1).ToString();
                 return true;
             }
             if (cont == 1)
             {
+                
                 MessageBox.Show("Carton Grupo Contrario, +" + (cont + 1), "Aviso ");
                 txtCartonContrario.Text = (int.Parse(txtCartonContrario.Text) + cont+1).ToString();
                 return false;
@@ -203,6 +207,7 @@ namespace WinProjectCuarentaV2
                 puntaje = int.Parse(tCC);
                 puntaje = puntaje + 3;
                 txtCartonGrupoContrario.Text = puntaje.ToString();
+                
                 MessageBox.Show("Carton Grupo Contrario, +2", "Aviso Error");
                 return true;
             }
@@ -257,6 +262,7 @@ namespace WinProjectCuarentaV2
                 {
                     puntaje = puntaje + 2;
                     txtPuntosGrupoActual.Text = puntaje.ToString();
+                    
                     MessageBox.Show("Limpia Grupo Actual, +2", "Aviso ");
                 }
 

@@ -40,8 +40,14 @@ namespace WinProjectCuarentaV2
                 Array.Copy(receivedBuf, dataBuf, received);
                 string text = (Encoding.ASCII.GetString(dataBuf));
                 string[] textoRecibido = text.Split(',');
-                identificacionCadenaRecibida(textoRecibido);
-                
+                if (textoRecibido[0].Equals ("isTwo"))
+                {
+                    numberPlayers = 2;
+                }
+                else
+                {
+                    identificacionCadenaRecibida(textoRecibido);
+                }
                 userSocket.BeginReceive(receivedBuf, 0, receivedBuf.Length, SocketFlags.None, new AsyncCallback(ReceiveData), userSocket);
                 
             }
