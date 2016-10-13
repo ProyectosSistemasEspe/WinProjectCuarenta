@@ -29,8 +29,8 @@ namespace WinProjectCuarentaV2
         int numberPlayers;
 
         Cuarenta c=new Cuarenta();
-        Jugador j;
-        CUser objUser;
+        Gamer j;
+        User objUser;
         bool bandera;
         string IP;
        
@@ -51,15 +51,15 @@ namespace WinProjectCuarentaV2
             if (bandera)
             {
                 button.IsEnabled = false;
-                objUser = new CServer(b,c,t,numberPlayers);
-                j = new Jugador(1);
+                objUser = new Server(b,c,t,numberPlayers);
+                j = new Gamer(1, (numberPlayers == 4) ? true : false);
                 turnoActual = 1;
                 turnoSiguiente = turnoActual + 1;
             }
             else {
                 button.IsEnabled = false;
-                objUser = new CClient(IP,b,c,t);
-                j = new Jugador(objUser.getTurno());
+                objUser = new Client(IP,b,c,t);
+                j = new Gamer(objUser.getTurno(), (numberPlayers == 4) ? true : false);
                 turnoActual = objUser.getTurno();
                 objUser.Send("TwoPlayersReturn");
                 Thread.Sleep(500);

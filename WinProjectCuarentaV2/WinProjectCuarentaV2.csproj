@@ -57,11 +57,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Sockets\CClient.cs" />
-    <Compile Include="Sockets\CServer.cs" />
+    <Compile Include="Sockets\Client.cs" />
+    <Compile Include="Sockets\Server.cs" />
     <Compile Include="GameLogic\Cuarenta.cs" />
-    <Compile Include="Sockets\CUser.cs" />
-    <Compile Include="GameLogic\Jugador.cs" />
+    <Compile Include="Sockets\User.cs" />
+    <Compile Include="GameLogic\Gamer.cs" />
     <Compile Include="Forms\WindowsCuarenta.xaml.cs">
       <DependentUpon>WindowsCuarenta.xaml</DependentUpon>
     </Compile>

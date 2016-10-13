@@ -18,12 +18,12 @@ using System.Windows.Threading;
 
 namespace WinProjectCuarentaV2
 {
-    class CClient : CUser
+    class Client : User
     {
         EndPoint epRemote;
         string IPremote;
         //int turno;
-        public CClient(string IPRemote,Button[]b,Button[]c,TextBox[]t) : base(b,c,t)
+        public Client(string IPRemote,Button[]b,Button[]c,TextBox[]t) : base(b,c,t)
         {
             IPremote = IPRemote;
             Conectar(IPremote);

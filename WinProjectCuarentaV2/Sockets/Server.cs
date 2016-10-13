@@ -18,13 +18,13 @@ using System.Windows.Threading;
 
 namespace WinProjectCuarentaV2
 {
-    class CServer : CUser
+    class Server : User
     {
 
         private List<Socket> clientSockets { get; set; } //se modico el acceso
         private EndPoint epLocal;
         //RichTextBox rchMessages;
-        public CServer(Button[] b,Button[]c,TextBox[]t,int nP) : base(b,c,t)
+        public Server(Button[] b,Button[]c,TextBox[]t,int nP) : base(b,c,t)
         {
             //CheckForIllegalCrossThreadCalls = false; IMPORTANTE
             clientSockets = new List<Socket>();

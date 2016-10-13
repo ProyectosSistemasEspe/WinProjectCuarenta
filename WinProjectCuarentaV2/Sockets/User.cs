@@ -20,25 +20,23 @@ using System.Windows.Threading;
 
 namespace WinProjectCuarentaV2
 {
-    abstract class CUser
+    abstract class User
     {
         protected byte[] receivedBuf = new byte[1024];
         protected Socket userSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        protected int turno, cartaanterior, turnoActual, numberPlayers;
+        protected int turno, cartaAnterior, turnoActual, numberPlayers;
         protected Button[] b;
         protected Button[] c;
         protected TextBox[] t;
-        public CUser(Button[]b,Button[]c,TextBox[] t)
+        public User(Button[]b,Button[]c,TextBox[] t)
         {
-            //this line is only a test
             turnoActual = 1;
             this.c = c;
             this.b = b;
             this.t = t;
-            cartaanterior = 0;
-            numberPlayers = 4;
+            cartaAnterior = 0;
+            //numberPlayers = 4;
             userSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-            
         }
         public abstract void SendGeneral(string data);
         public abstract void Send(string data);
@@ -129,7 +127,7 @@ namespace WinProjectCuarentaV2
         }
         public int getCartaAnterior()
         {
-            return cartaanterior;
+            return cartaAnterior;
         }
 
         public int getTurnoActual()
@@ -144,7 +142,7 @@ namespace WinProjectCuarentaV2
         {
             String[] dataSeparated = texto.Split('@');
             if (dataSeparated[0] != "1") {
-                cartaanterior = int.Parse(dataSeparated[1]);
+                cartaAnterior = int.Parse(dataSeparated[1]);
                 LoadTable(dataSeparated[2]);
                 //LoadPoints(dataSeparated[3]);
             }

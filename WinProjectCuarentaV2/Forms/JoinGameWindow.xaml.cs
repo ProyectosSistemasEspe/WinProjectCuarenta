@@ -23,7 +23,7 @@ namespace WinProjectCuarentaV2
     {
         bool usuario;
         string ip;
-        //CClient prueba;
+        //Client prueba;
         public JoinGameWindow(bool estado)
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace WinProjectCuarentaV2
         private void btnJoin_Click(object sender, RoutedEventArgs e)
         {
             ip = txtIp.Text;
-            //prueba = new CClient(ip);
+            //prueba = new Client(ip);
             WindowsCuarenta w = new WindowsCuarenta(false, ip,4);
             this.Close();
             w.Show();
