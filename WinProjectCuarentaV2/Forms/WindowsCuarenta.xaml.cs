@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
-using WinProjectCuarentaV2.MessageBoxes;
+
 
 namespace WinProjectCuarentaV2
 {
@@ -26,6 +26,7 @@ namespace WinProjectCuarentaV2
         static int contadorBarajear = 0;
         int cartaActual = 0, cartaAnterior = 0;
         int turnoActual, turnoSiguiente;
+        int numberPlayers;
 
         Cuarenta c=new Cuarenta();
         Jugador j;
@@ -33,11 +34,12 @@ namespace WinProjectCuarentaV2
         bool bandera;
         string IP;
        
-        public WindowsCuarenta(bool usuario,string IP)
+        public WindowsCuarenta(bool usuario,string IP,int nP)
         {
             InitializeComponent();
             bandera = usuario;
             this.IP = IP;
+            this.numberPlayers = nP;
             cartaActual = 0;cartaAnterior = 0;
             turnoActual = 1;turnoSiguiente = 2;
         }
@@ -49,7 +51,7 @@ namespace WinProjectCuarentaV2
             if (bandera)
             {
                 button.IsEnabled = false;
-                objUser = new CServer(b,c,t);
+                objUser = new CServer(b,c,t,numberPlayers);
                 j = new Jugador(1);
                 turnoActual = 1;
                 turnoSiguiente = turnoActual + 1;
@@ -59,7 +61,9 @@ namespace WinProjectCuarentaV2
                 objUser = new CClient(IP,b,c,t);
                 j = new Jugador(objUser.getTurno());
                 turnoActual = objUser.getTurno();
-                if (turnoActual == 4)
+                objUser.Send("TwoPlayersReturn");
+                Thread.Sleep(500);
+                if (turnoActual == objUser.getNumberP())
                     turnoSiguiente = 1;
                 else
                     turnoSiguiente = turnoActual + 1;
@@ -197,8 +201,7 @@ namespace WinProjectCuarentaV2
                 objUser.Send(siguiente);
                 //MessageBox.Show("Datos son " + siguiente);
             }
-            ControlMessages ctrl = new ControlMessages();
-            ctrl.Show();
+            
             verificarTurno();
             desactivarCartasUsuario();
         }

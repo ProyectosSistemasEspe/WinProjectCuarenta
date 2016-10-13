@@ -24,17 +24,19 @@ namespace WinProjectCuarentaV2
     {
         protected byte[] receivedBuf = new byte[1024];
         protected Socket userSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        protected int turno, cartaAnterior, turnoActual;
+        protected int turno, cartaanterior, turnoActual, numberPlayers;
         protected Button[] b;
         protected Button[] c;
         protected TextBox[] t;
         public CUser(Button[]b,Button[]c,TextBox[] t)
         {
+            //this line is only a test
             turnoActual = 1;
             this.c = c;
             this.b = b;
             this.t = t;
-            cartaAnterior = 0;
+            cartaanterior = 0;
+            numberPlayers = 4;
             userSocket.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
             
         }
@@ -127,18 +129,22 @@ namespace WinProjectCuarentaV2
         }
         public int getCartaAnterior()
         {
-            return cartaAnterior;
+            return cartaanterior;
         }
 
         public int getTurnoActual()
         {
             return turnoActual;
         }
+        public int getNumberP()
+        {
+            return numberPlayers;
+        }
         public void UpdateGame(String texto)
         {
             String[] dataSeparated = texto.Split('@');
             if (dataSeparated[0] != "1") {
-                cartaAnterior = int.Parse(dataSeparated[1]);
+                cartaanterior = int.Parse(dataSeparated[1]);
                 LoadTable(dataSeparated[2]);
                 //LoadPoints(dataSeparated[3]);
             }

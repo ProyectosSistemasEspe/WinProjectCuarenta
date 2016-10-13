@@ -29,11 +29,16 @@ namespace WinProjectCuarentaV2
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
-            WindowsCuarenta w = new WindowsCuarenta(true,"");
+            WindowsCuarenta w = new WindowsCuarenta(true,"",4);
             this.Close();
             w.Show();
         }
-
+        private void btn2PlayersGame_Click(object sender, RoutedEventArgs e)
+        {
+            WindowsCuarenta w = new WindowsCuarenta(true, "",2);
+            this.Close();
+            w.Show();
+        }
         private void btnJoinGame_Click(object sender, RoutedEventArgs e)
         {
             JoinGameWindow j = new JoinGameWindow(false);
@@ -45,5 +50,7 @@ namespace WinProjectCuarentaV2
         {
             Application.Current.Shutdown();
         }
+
+       
     }
 }

@@ -5,13 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WinProjectCuarentaV2"
         mc:Ignorable="d"
-        Title="Dos por Shunsho" Height="300" Width="300">
-    <Grid Width="300" Height="300" Cursor="Arrow" ClipToBounds="True" SnapsToDevicePixels="True">
+        Title="Dos por Shunsho" Height="355.029" Width="300">
+    <Grid Width="300" Cursor="Arrow" ClipToBounds="True" SnapsToDevicePixels="True" Margin="0,0,-8,-3">
         <Grid.Background>
             <ImageBrush ImageSource="C:\Cuarenta Recursos\principal.jpg"/>
         </Grid.Background>
-        <WrapPanel HorizontalAlignment="Left" Height="151" Margin="10,108,0,0" VerticalAlignment="Top" Width="272">
-            <Button x:Name="btnNewGame" Content="Nuevo Juego" Width="268" Height="48" Click="btnNewGame_Click" FontWeight="Bold" FontFamily="Gabriola" FontSize="20">
+        <WrapPanel HorizontalAlignment="Left" Height="194" Margin="10,108,0,0" VerticalAlignment="Top" Width="272">
+            <Button x:Name="btnNewGame" Content="4 jugadores" Width="268" Height="48" Click="btnNewGame_Click" FontWeight="Bold" FontFamily="Gabriola" FontSize="20">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FFC97C7C"/>
+                        <GradientStop Color="#FF7A3535" Offset="0.692"/>
+                        <GradientStop Color="#FF8F6060" Offset="0.892"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="button" Content="2 jugadores" Width="268" Height="47" Click="btn2PlayersGame_Click" FontWeight="Bold" FontFamily="Gabriola" FontSize="20">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                         <GradientStop Color="#FFC97C7C"/>

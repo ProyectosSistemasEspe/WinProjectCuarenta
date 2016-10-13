@@ -20,15 +20,17 @@ namespace WinProjectCuarentaV2
 {
     class CServer : CUser
     {
+
         private List<Socket> clientSockets { get; set; } //se modico el acceso
         private EndPoint epLocal;
-       //RichTextBox rchMessages;
-        public CServer(Button[] b,Button[]c,TextBox[]t) : base(b,c,t)
+        //RichTextBox rchMessages;
+        public CServer(Button[] b,Button[]c,TextBox[]t,int nP) : base(b,c,t)
         {
             //CheckForIllegalCrossThreadCalls = false; IMPORTANTE
             clientSockets = new List<Socket>();
             SetupServer();
             turno = 1;
+            this.numberPlayers = nP;
             MessageBox.Show("Juego Conectado, usted es el anfitrion");
         }
         private void SetupServer()
@@ -67,7 +69,7 @@ namespace WinProjectCuarentaV2
             //MessageBox.Show("Se conecto");//que frustante
             string message = (clientSockets.Count).ToString();
             SendData(socket, message);
-            if (clientSockets.Count == 3)
+            if (clientSockets.Count == (numberPlayers-1))
             {
                 MessageBox.Show("Empieza la Partida...");
                 TryToUpdateButtonCheckAccess(b[5], true);
@@ -103,11 +105,22 @@ namespace WinProjectCuarentaV2
                     Array.Copy(receivedBuf, dataBuf, received);
                     string text = Encoding.ASCII.GetString(dataBuf);
                     //aqui se puede analizar con otro identificador el envio de puntos
-                    if (text.IndexOf("@") != -1) //verifica si el string recibido tiene @ para saber que recibio una barajeada
-                        Send(text);
-                    else{ //si no es barajeada entonces analizara lo que recibio
-                        string[] textoRecibido = text.Split(',');
-                        identificacionCadenaRecibida(textoRecibido);
+                    if (text == "TwoPlayersReturn")
+                    {
+                        if (numberPlayers == 2)
+                        {
+                            SendT("isTwo");
+                        }
+                    }
+                    else
+                    {
+                        if (text.IndexOf("@") != -1) //verifica si el string recibido tiene @ para saber que recibio una barajeada
+                            SendGeneral(text);
+                        else
+                        { //si no es barajeada entonces analizara lo que recibio
+                            string[] textoRecibido = text.Split(',');
+                            identificacionCadenaRecibida(textoRecibido);
+                        }
                     }
                 }
                 else{
@@ -135,7 +148,7 @@ namespace WinProjectCuarentaV2
                         SendT(textoRecibido[0] + "," + textoRecibido[1]);
                     break;
                 case 3:
-                    if (textoRecibido[2] == 5.ToString())
+                    if (textoRecibido[2] == (numberPlayers+1).ToString())
                         pasoTurnoCartas();
                     else
                         SendT(textoRecibido[0] + "," + textoRecibido[1]+","+textoRecibido[2]);
