@@ -301,7 +301,7 @@ namespace WinProjectCuarentaV2
         private void button_Click(object sender, RoutedEventArgs e)//boton para barajear las cartas
         {
             j.barajear();
-            objUser.SendGeneral(j.ConcatenaraTodo()+"@"+objUser.getTurno().ToString());
+            objUser.SendGeneral(j.ConcatenaraTodo()+"@"+objUser.getTurno().ToString()+"@xd@"+ objUser.getTurno().ToString());
             Thread.Sleep(500);
             button.IsEnabled = false;
             objUser.SendT("turno,carta," + (objUser.getTurno() + 1).ToString());

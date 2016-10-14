@@ -249,7 +249,7 @@ namespace WinProjectCuarentaV2
             {
                SendData(clientSockets[j], data[k]+","+data[5]);
             }
-            LoadDeck(data[3] + "," + data[5]);
+            LoadDeck(data[numberPlayers-1] + "," + data[5]);
 
         }
     }
