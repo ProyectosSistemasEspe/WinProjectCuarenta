@@ -43,7 +43,7 @@ namespace WinProjectCuarentaV2
                 if (textoRecibido[0].Equals ("isTwo"))
                 {
                     numberPlayers = 2;
-                    numberOfRep = 4;
+                    numberOfRep = 3;
                 }
                 else
                 {
