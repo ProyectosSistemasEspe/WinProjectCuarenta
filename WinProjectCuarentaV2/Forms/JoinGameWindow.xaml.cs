@@ -34,7 +34,7 @@ namespace WinProjectCuarentaV2
         {
             ip = txtIp.Text;
             //prueba = new Client(ip);
-            WindowsCuarenta w = new WindowsCuarenta(false, ip,4);
+            WindowsCuarenta w = new WindowsCuarenta(false, ip,4,1);
             this.Close();
             w.Show();
         }

@@ -29,13 +29,13 @@ namespace WinProjectCuarentaV2
 
         private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
-            WindowsCuarenta w = new WindowsCuarenta(true,"",4);
+            WindowsCuarenta w = new WindowsCuarenta(true,"",4,1);
             this.Close();
             w.Show();
         }
         private void btn2PlayersGame_Click(object sender, RoutedEventArgs e)
         {
-            WindowsCuarenta w = new WindowsCuarenta(true, "",2);
+            WindowsCuarenta w = new WindowsCuarenta(true, "",2,3);
             this.Close();
             w.Show();
         }

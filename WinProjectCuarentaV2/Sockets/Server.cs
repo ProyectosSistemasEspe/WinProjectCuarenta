@@ -24,13 +24,14 @@ namespace WinProjectCuarentaV2
         private List<Socket> clientSockets { get; set; } //se modico el acceso
         private EndPoint epLocal;
         //RichTextBox rchMessages;
-        public Server(Button[] b,Button[]c,TextBox[]t,int nP) : base(b,c,t)
+        public Server(Button[] b,Button[]c,TextBox[]t,int nP,int nR) : base(b,c,t)
         {
             //CheckForIllegalCrossThreadCalls = false; IMPORTANTE
             clientSockets = new List<Socket>();
             SetupServer();
             turno = 1;
             this.numberPlayers = nP;
+            this.numberOfRep = nR;
             MessageBox.Show("Juego Conectado, usted es el anfitrion");
         }
         private void SetupServer()

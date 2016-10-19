@@ -26,7 +26,7 @@ namespace WinProjectCuarentaV2
         static int contadorBarajear = 0;
         int cartaActual = 0, cartaAnterior = 0;
         int turnoActual, turnoSiguiente;
-        int numberPlayers;
+        int numberPlayers,numberRep;
 
         Cuarenta c=new Cuarenta();
         Gamer j;
@@ -34,12 +34,13 @@ namespace WinProjectCuarentaV2
         bool bandera;
         string IP;
        
-        public WindowsCuarenta(bool usuario,string IP,int nP)
+        public WindowsCuarenta(bool usuario,string IP,int nP,int nR)
         {
             InitializeComponent();
             bandera = usuario;
             this.IP = IP;
             this.numberPlayers = nP;
+            this.numberRep = nR;
             cartaActual = 0;cartaAnterior = 0;
             turnoActual = 1;turnoSiguiente = 2;
         }
@@ -51,7 +52,7 @@ namespace WinProjectCuarentaV2
             if (bandera)
             {
                 button.IsEnabled = false;
-                objUser = new Server(b,c,t,numberPlayers);
+                objUser = new Server(b,c,t,numberPlayers,numberRep);
                 j = new Gamer(1, (numberPlayers == 4) ? true : false);
                 turnoActual = 1;
                 turnoSiguiente = turnoActual + 1;
@@ -307,11 +308,11 @@ namespace WinProjectCuarentaV2
             objUser.SendT("turno,carta," + (objUser.getTurno() + 1).ToString());
             if (contadorBarajear < 1)
             {
-                contadorBarajear++;
+                contadorBarajear=objUser.getNumberR();
                 //objUser.SendT("turno,carta,actual," + (objUser.getTurnoActual()).ToString());
             }
             else
-                contadorBarajear = 0;
+                contadorBarajear--;
             //objUser.pasoTurnoCartas();
             
         }
@@ -359,7 +360,7 @@ namespace WinProjectCuarentaV2
                 {
                     if (objUser.getTurnoActual() == objUser.getTurno())
                     {
-                        if (objUser.getTurnoActual() < 4)
+                        if (objUser.getTurnoActual() < objUser.getNumberP())
                             objUser.setTurnoActual(objUser.getTurnoActual() + 1);
                         else
                             objUser.setTurnoActual(1);

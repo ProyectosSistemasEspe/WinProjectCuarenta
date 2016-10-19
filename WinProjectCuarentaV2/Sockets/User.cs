@@ -24,7 +24,7 @@ namespace WinProjectCuarentaV2
     {
         protected byte[] receivedBuf = new byte[1024];
         protected Socket userSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        protected int turno, cartaAnterior, turnoActual, numberPlayers;
+        protected int turno, cartaAnterior, turnoActual, numberPlayers,numberOfRep;
         protected Button[] b;
         protected Button[] c;
         protected TextBox[] t;
@@ -137,6 +137,10 @@ namespace WinProjectCuarentaV2
         public int getNumberP()
         {
             return numberPlayers;
+        }
+        public int getNumberR()
+        {
+            return numberOfRep;
         }
         public void UpdateGame(String texto)
         {
