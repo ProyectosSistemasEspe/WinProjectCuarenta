@@ -27,6 +27,8 @@ namespace WinProjectCuarentaV2
         {
             IPremote = IPRemote;
             Conectar(IPremote);
+            numberOfRep = 1;
+            numberPlayers = 4;
             //MessageBox.Show("Usted es un jugador, bienvenido al juego");
         }
 
